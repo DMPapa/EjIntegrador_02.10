@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace EjIntegrador.Entidades
             }
             public int Antiguedad
             {
-                get { return this._fechaNac.Year; }
+                get { return this._fechaingreso.Year; }
             }
             public Empleado (string nom, string ap, DateTime nac, DateTime ing, int leg) : base (nom, ap, nac)
             {
@@ -38,5 +39,19 @@ namespace EjIntegrador.Entidades
                 this._legajo = leg;
                 this._salarios = new List<Salario>();
             }
+
+        public override string GetCredencial()
+        {
+            return "algo";
         }
+        public override string GetNombreCompleto()
+        {
+            return this._nombre + " " + this._apellido;
+        }
+
+        public override string ToString()
+        {
+            return GetCredencial();
+        }
+    }
 }

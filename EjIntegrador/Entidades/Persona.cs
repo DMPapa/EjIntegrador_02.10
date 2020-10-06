@@ -9,9 +9,9 @@ namespace EjIntegrador.Entidades
 {
     abstract class Persona
     {
-        private string _apellido;
-        private DateTime _fechaNac;
-        private string _nombre;
+        protected string _apellido;
+        protected DateTime _fechaNac;
+        protected string _nombre;
   
         public string Apellido
         {
@@ -43,13 +43,18 @@ namespace EjIntegrador.Entidades
             get { return this._fechaNac.Year; }
         }
 
-        public string GetCredencial ()
+        public virtual string GetCredencial ()
         {
-            return "algo";
+            return this._nombre + this._apellido + "- Edad: " + this.Edad;
         }
-        public string GetNombreCompleto ()
+        public virtual string GetNombreCompleto ()
         {
             return (this.Nombre + " " + this._apellido);
+        }
+
+        public override string ToString()
+        {
+            return GetCredencial();
         }
     }
 }

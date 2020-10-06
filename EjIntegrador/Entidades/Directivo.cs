@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace EjIntegrador.Entidades
 {
-    class Directivo
+    class Directivo : Empleado
     {
+        public Directivo(string nom, string ap, DateTime nac, DateTime ing, int leg) : base(nom, ap, nac, ing, leg)
+        {
+
+        }
+
+        public override string GetNombreCompleto()
+        {
+            return "Sr. Director " + this._apellido;
+        }
     }
 }

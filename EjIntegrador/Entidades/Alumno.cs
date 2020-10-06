@@ -23,7 +23,7 @@ namespace EjIntegrador.Entidades
 
         public override string GetCredencial ()
         {
-            return this._codigo + " - " + this._nombre + this.Apellido;
+            return this._codigo + " - Nombre: " + this._nombre + " " + this.Apellido + " - Edad: " + this.Edad;
         }
         public override string ToString()
         {

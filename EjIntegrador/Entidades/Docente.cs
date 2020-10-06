@@ -13,9 +13,9 @@ namespace EjIntegrador.Entidades
 
         }
 
-        public string GetNombreCompleto()
+        public new string GetNombreCompleto()
         {
-            return this._nombre + this._apellido;
+            return "Docente " + this._nombre;
         }
     }
 }
