@@ -5,3 +5,10 @@ C:\Users\NyD\Desktop\Diego\CAI\Practica\EjIntegrador_02.10\EjIntegrador\obj\Debu
 C:\Users\NyD\Desktop\Diego\CAI\Practica\EjIntegrador_02.10\EjIntegrador\obj\Debug\EjIntegrador.csproj.CoreCompileInputs.cache
 C:\Users\NyD\Desktop\Diego\CAI\Practica\EjIntegrador_02.10\EjIntegrador\obj\Debug\EjIntegrador.exe
 C:\Users\NyD\Desktop\Diego\CAI\Practica\EjIntegrador_02.10\EjIntegrador\obj\Debug\EjIntegrador.pdb
+D:\Documentos\GitHub\EjIntegrador_02.10\EjIntegrador\bin\Debug\EjIntegrador.exe.config
+D:\Documentos\GitHub\EjIntegrador_02.10\EjIntegrador\bin\Debug\EjIntegrador.exe
+D:\Documentos\GitHub\EjIntegrador_02.10\EjIntegrador\bin\Debug\EjIntegrador.pdb
+D:\Documentos\GitHub\EjIntegrador_02.10\EjIntegrador\obj\Debug\EjIntegrador.csprojAssemblyReference.cache
+D:\Documentos\GitHub\EjIntegrador_02.10\EjIntegrador\obj\Debug\EjIntegrador.csproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\EjIntegrador_02.10\EjIntegrador\obj\Debug\EjIntegrador.exe
+D:\Documentos\GitHub\EjIntegrador_02.10\EjIntegrador\obj\Debug\EjIntegrador.pdb
