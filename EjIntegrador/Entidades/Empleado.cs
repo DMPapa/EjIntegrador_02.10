@@ -40,10 +40,6 @@ namespace EjIntegrador.Entidades
                 this._salarios = new List<Salario>();
             }
 
-        public override string GetCredencial()
-        {
-            return "algo";
-        }
         public override string GetNombreCompleto()
         {
             return this._nombre + " " + this._apellido;
@@ -51,7 +47,7 @@ namespace EjIntegrador.Entidades
 
         public override string ToString()
         {
-            return GetCredencial();
+            return GetNombreCompleto();
         }
     }
 }

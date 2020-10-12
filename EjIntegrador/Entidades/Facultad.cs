@@ -1,6 +1,8 @@
 ﻿using EjIntegrador;
+using EjVtaRepuestos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security;
 using System.Security.Cryptography.X509Certificates;
@@ -47,25 +49,21 @@ namespace EjIntegrador.Entidades
 
         public void AgregarAlumno(string nom, string ap, DateTime nac, int cod)
         {
-            try
-            { this.Alumnos.Add(new Alumno(nom, ap, nac, cod)); ConsolaHelper.Mensaje("Se ha agregado el alumno"); }
-            catch (ErrorIngreso e1) { ConsolaHelper.Mensaje(e1.Message); }
+            
+            this.Alumnos.Add(new Alumno(nom, ap, nac, cod));
 
         }
 
         public void AgregarEmpleado(string tipoemp, string nom, string ap, DateTime nac, DateTime ing, int leg, string apo)
         {
             if (tipoemp.ToUpper() == "DOCENTE")
-                try { new Docente(nom, ap, nac, ing, leg); ConsolaHelper.Mensaje("Se ha agregado el docente"); }
-                catch (ErrorIngreso e1) { ConsolaHelper.Mensaje(e1.Message); }
+            { this._empleados.Add(new Docente(nom, ap, nac, ing, leg)); }
             else if (tipoemp.ToUpper() == "BEDEL")
-                try { new Bedel(nom, ap, nac, ing, leg, apo); ConsolaHelper.Mensaje("Se ha agregado el bedel"); }
-                catch (ErrorIngreso e1) { ConsolaHelper.Mensaje(e1.Message); }
+            { this._empleados.Add(new Bedel(nom, ap, nac, ing, leg, apo)); }
             else if (tipoemp.ToUpper() == "DIRECTIVO")
-                try { new Directivo(nom, ap, nac, ing, leg); ConsolaHelper.Mensaje("Se ha agregado el directivo"); }
-                catch (ErrorIngreso e1) { ConsolaHelper.Mensaje(e1.Message); }
+            { this._empleados.Add(new Directivo(nom, ap, nac, ing, leg)); }
             else
-                throw new Exception("El tipo de empleado no existe");
+            { throw new Exception("El tipo de empleado no existe"); }
         }
         public void EliminarAlumno(int cod)
         {
@@ -76,10 +74,8 @@ namespace EjIntegrador.Entidades
                     _alumnos.Remove(al);
                 alumnosborrados += 1;
             }
-            if (alumnosborrados != 0)
-                ConsolaHelper.Mensaje("Se ha borrado el alumno");
-            else
-                ConsolaHelper.Mensaje("No se ha borrado ningún alumno");
+            if (alumnosborrados == 0)
+                throw new Exception("No se ha borrado ningún alumno");
         }
         public void EliminarEmpleado(int leg)
         {
@@ -87,13 +83,13 @@ namespace EjIntegrador.Entidades
             foreach (Empleado emp in this.Empleados)
             {
                 if (emp.Legajo == leg)
+                {
+                    empleadosborrados += 1;
                     _empleados.Remove(emp);
-                empleadosborrados += 1;
+                }
             }
-            if (empleadosborrados != 0)
-                ConsolaHelper.Mensaje("Se ha borrado el empleado");
-            else
-                ConsolaHelper.Mensaje("No se ha borrado ningún empleado");
+            if (empleadosborrados == 0)
+                    throw new Exception("No se ha borrado ningún empleado");
         }
         public void ModificarEmpleado(int leg, string nnom, string nap, DateTime nfecha)
         {
@@ -107,10 +103,8 @@ namespace EjIntegrador.Entidades
 
                 empleadosborrados += 1;
             }
-            if (empleadosborrados != 0)
-                ConsolaHelper.Mensaje("Se ha modificado el empleado");
-            else
-                ConsolaHelper.Mensaje("No se ha modificado ningún empleado");
+            if (empleadosborrados == 0)
+                throw new Exception("No se ha modificado ningún empleado");
         }
         public List<Alumno> TraerAlumnos()
         {
@@ -146,7 +140,7 @@ namespace EjIntegrador.Entidades
             List<Empleado> listadoempleados = new List<Empleado>();
             foreach (Empleado emp in this.Empleados)
             {
-                if (emp.Nombre.ToUpper() == nom)
+                if (emp.Nombre.ToUpper() == nom.ToUpper())
                     listadoempleados.Add(emp);
             }
             return listadoempleados;

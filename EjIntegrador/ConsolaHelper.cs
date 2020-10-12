@@ -6,15 +6,28 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EjIntegrador
+namespace EjVtaRepuestos
 {
     public static class ConsolaHelper
     {
 
         public static string PedirTexto(string ingreso)
         {
-            Console.WriteLine(ingreso);
-            return Console.ReadLine();
+            bool estexto = true;
+            int numero;
+            string texto;
+            do
+            {
+                Console.WriteLine(ingreso);
+                estexto = true;
+                texto = Console.ReadLine();
+                if (int.TryParse(texto, out numero) == true)
+                {
+                    estexto = false;
+                    Console.WriteLine("\n--Lo ingresado es número, debe ser texto --\n");
+                }
+            } while (estexto == false);
+            return texto;
         }
         public static int PedirNumero(string ingreso)
         {
@@ -24,10 +37,24 @@ namespace EjIntegrador
             {
                 Console.WriteLine(ingreso);
                 if (int.TryParse(Console.ReadLine(), out numero) == true)
+                    
                     esnumero = true;
                 else Console.WriteLine("\n--Lo ingresado no es número --\n");
             } while (esnumero == false);
             return numero;
+        }
+        public static double PedirDouble(string ingreso)
+        {
+            bool esdouble = false;
+            double numdouble;
+            do
+            {
+                Console.WriteLine(ingreso);
+                if (double.TryParse(Console.ReadLine(), out numdouble) == true)
+                    esdouble = true;
+                else Console.WriteLine("\n--Lo ingresado no es número --\n");
+            } while (esdouble == false);
+            return numdouble;
         }
         public static DateTime PedirFecha(string ingreso)
         {
